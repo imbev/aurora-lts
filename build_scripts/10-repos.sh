@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+dnf remove -y subscription-manager
 
 dnf config-manager --save \
     --setopt=exclude=PackageKit,PackageKit-command-not-found,rootfiles
@@ -11,10 +12,6 @@ dnf install -y \
 
 dnf config-manager --set-enabled \
     crb
-
-
-dnf remove -y subscription-manager
-
 
 dnf config-manager --add-repo \
     https://copr.fedorainfracloud.org/coprs/ublue-os/packages/repo/epel-${MAJOR_VERSION_NUMBER}/ublue-os-packages-epel-${MAJOR_VERSION_NUMBER}.repo
