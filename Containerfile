@@ -12,8 +12,6 @@ ARG MAJOR_VERSION="${MAJOR_VERSION:-lts}"
 ARG SHA_HEAD_SHORT="${SHA_HEAD_SHORT:-}"
 
 COPY system_files /
-COPY system_files_overrides /var/tmp/system_files_overrides
 COPY build_scripts /var/tmp/build_scripts
-COPY build_scripts_overrides /var/tmp/build_scripts_overrides
 
 RUN /var/tmp/build_scripts/build.sh
