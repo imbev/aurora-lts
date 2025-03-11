@@ -372,7 +372,7 @@ patch-iso-branding override="0" iso_path="output/bootiso/install.iso":
         quay.io/centos/centos:stream10 \
         bash -c 'dnf install -y lorax && \
     	mkdir /images && cd /iso_files/product && find . | cpio -c -o | gzip -9cv > /images/product.img && cd / \
-            && mkksiso --add images --volid bluefin-boot /{{ iso_path }} /output/final.iso'
+            && mkksiso --add images --volid aurora-helium-boot /{{ iso_path }} /output/final.iso'
 
     if [ {{ override }} -ne 0 ] ; then
         mv output/final.iso {{ iso_path }}
