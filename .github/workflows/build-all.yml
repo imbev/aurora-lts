@@ -1,0 +1,15 @@
+name: Build Aurora LTS (full)
+
+on:
+  workflow_dispatch:
+  workflow_run:
+    workflows:
+      - "Build Aurora LTS"
+      - "Build Aurora LTS DX"
+      - "Build Aurora LTS DX HWE"
+      - "Build Aurora LTS HWE"
+      - "Build Aurora LTS GDX"
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref || github.run_id }}
+  cancel-in-progress: true
